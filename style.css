@@ -1,0 +1,11 @@
+body{
+    background: linear-gradient(to bottom, lightgreen, rgb(216, 139, 216), rgb(165, 102, 102));
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+    color: chocolate;
+}
+pre{
+    color: blue;
+}

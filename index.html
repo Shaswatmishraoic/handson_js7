@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Array of Object</h1>
+    <pre>
+        "let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+          {name: 'Baba', id: 101, marks : 23 },
+          {name: 'yaga', id: 200, marks : 45 },
+          {name: 'Wick', id: 115, marks : 75 } ] "
+    </pre>
+    <p>1."We are interested in retrieving only the students' names; all the names should be in caps.
+
+        ['JOHN', 'BABA', 'YAGA', 'WICK']"</p>
+    <pre>
+        let studentNames = studentRecords.map(student => student.name.toUpperCase());
+        console.log(studentNames);
+    </pre>
+    <p>['JOHN', 'BABA', 'YAGA', 'WICK']</p>
+    <hr>
+    <p>2."Suppose we have the same dataset as above but this time we want to get the details of students who scored more than 50 marks.
+
+        [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]"</p>
+    <pre>
+        let studentsAbove50Marks = studentRecords.filter(student => student.marks > 50);
+        console.log(studentsAbove50Marks);
+    </pre>
+    <p>[
+        { name: 'John', id: 123, marks: 98 },
+        { name: 'Wick', id: 115, marks: 75 }
+      ]</p>
+    <hr>
+    <p>3.Retrieve the details of students who scored more than 50 marks and have IDs greater than 120.</p>
+    <pre>
+        let studentsAbove50MarksAndIDGreaterThan120 = studentRecords.filter(student => student.marks > 50 && student.id > 120);
+        console.log(studentsAbove50MarksAndIDGreaterThan120);
+    </pre>
+    <p>[
+        { name: 'John', id: 123, marks: 98 }
+      ]</p>
+    <hr>
+    <p>4.Consider the same scenario we have discussed above, but this time we would like to know the sum total of the marks of the students.</p>
+    <pre>
+        let totalMarks = studentRecords.reduce((sum, student) => sum + student.marks, 0);
+        console.log(totalMarks);
+    </pre>
+    <p>241</p>
+    <hr>
+    <p>5.This time we want to get only the names of the students who scored more than 50 marks from the same dataset used above.</p>
+    <pre>
+        let namesAbove50Marks = studentRecords
+  .filter(student => student.marks > 50)
+  .map(student => student.name);
+  console.log(namesAbove50Marks);
+    </pre>
+    <p>['John', 'Wick']</p>
+    <hr>
+    <p>6.This time we are required to print the sum of marks of the students with id > 120.</p>
+    <pre>
+        let sumMarks = studentRecords
+  .filter(student => student.id > 120)
+  .reduce((sum, student) => sum + student.marks, 0);
+  console.log(sumMarks);
+    </pre>
+    <p>173</p>
+    <hr>
+    <p>7.This time we are required to print the total marks of the students with marks greater than 50 after a grace of 15 marks has been added to those students who scored less than 50.</p>
+    <pre>
+        let totalMarksAfterGrace = studentRecords
+  .map(student => {
+    if (student.marks <= 50) {
+      student.marks += 15;
+    }
+    return student.marks;
+  })
+  .reduce((sum, marks) => sum + marks, 0);
+    console.log(totalMarksAfterGrace);
+    </pre>
+    <p>263</p>
+    <hr>
+    <p>8.Create 6 objects , each object will have name, class, roll no as properties. Store these objects in an array of objects. </p>
+    <pre>
+        let studentArray = [
+  { name: 'John', class: 'A', rollNo: 1 },
+  { name: 'Emma', class: 'B', rollNo: 2 },
+  { name: 'Michael', class: 'A', rollNo: 3 },
+  { name: 'Sophia', class: 'B', rollNo: 4 },
+  { name: 'William', class: 'A', rollNo: 5 },
+  { name: 'Olivia', class: 'B', rollNo: 6 }
+];
+
+console.log(studentArray);
+    </pre>
+    <script src="./index.js"></script>
+</body>
+</html>
